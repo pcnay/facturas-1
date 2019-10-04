@@ -1,0 +1,185 @@
+/* Todos estos estilos se van aplicar a partir de los 1000px*/
+@media screen and (max-width:1000px)
+{
+  #container
+  {
+    padding: 45px 10px 10px;
+  }
+
+  .btnMenu
+  {
+    display:block; /* Se muestra en forma de bloque, uno después de otro, solo en este caso solo son 1*/ 
+  }
+  nav
+  {
+    /* Para poder mover el menu donde se quiera */
+    position:absolute;
+    width:100%;
+    left:-100%; /* Para que cuando inicia en este tamaño de ventana este oculto, es decir totalmente a la Izquierda */
+    transition:0.5s all;
+  } 
+  nav ul
+  {
+    /* Colocar todos los elementos en columna, cuando se baja de 1000px*/ 
+    flex-direction:column;
+  }
+  /*Desactiva el efecto de deslizamiento, ya que en version para mobil no debe realizarlo */
+  nav ul li:hover ul
+  {
+    display:none;
+  }
+
+  nav ul li
+  {
+    width:100%; /* Ocupan el 100% de la pantalla partiendo de la media arriba mencionada */
+    border-bottom:1px solid #CCC;  
+  }
+  nav ul li a 
+  {
+    text-align:left;
+    width:100%;
+  }
+  /* Para que se puedan mostrar los submenus, con las modificaciones anteriores */ 
+  nav li ul 
+  {
+    position:relative; /*Para que se desplacen las opciones del menú y se muestren los submenus */
+    border-radius:0px;
+  }
+  /* Ingresando a los "SubMenus"
+  "last-child" se accesa a la última opción del submenu.
+  */ 
+  nav li ul li:last-child
+  {
+    border-radius:0;
+  }
+
+  /* <li class="principal">
+					<a href="#"><i class="fas fa-user"></i>Clientes<span class="arrow"><i */
+  nav .principal .arrow
+  {
+    float:right; /* Flota a la Derecha */
+  }
+
+  header h1 
+  {
+    font-size:14px;
+  }
+
+}
+/* Tamaños para Tablets */ 
+@media screen and (max-width:768px)
+{
+  .dashboard
+  {
+    flex-wrap:wrap; /* Baja los elementos cuando no quepan en la pantalla.*/    
+  }
+  .dashboard a
+  {
+    width:50%;
+    border:1px solid #CCC;
+  }
+  .containerDataUser, .containerDataEmpresa
+  {
+    width:100%;
+    margin-botton:20px;
+  }
+  #container h1 
+  {
+    font-size:12pt !important;  /* Para que ignore las definiciones de h1 anteiriores .*/     
+  }
+  .logoUser, .logoEmpresa
+  {
+    width:150px;
+    height:150px; 
+  }
+  /* Estilo para lista de usuarios*/
+  .btn_new 
+  {
+    margin:0;
+    margin-right:10px;
+    padding: 5px 10px;
+    font-size:8pt;     
+  } 
+  .form_search
+  {
+    width:100%;
+    margin-top:10px;
+    border:0;  
+  }
+  
+  .contanierTable
+  {
+    width:100%;
+    border:5px solid #CCC;
+    overflow:scroll; /* Se habilita el Scroll cuando no haya espacio en el contenido */ 
+  }
+  table 
+  {
+    width:850px;    
+  }
+  table td, table th 
+  {
+    padding:5px;
+    font-size:13pt; /* Tamaño de letra de las celdas de las tablas.*/
+  }
+
+  /* Pantalla de Captura De Clientes Se modifica esta anchura de porcentaje para que se ajuste al ancho que vaya teniendo la pantalla, si esta fija se cortan los input 
+    <div class = "form_register">
+      <h1><i class="fas fa-user-plus"></i> Registro Usuarios</h1>
+      <hr>
+      <div class="alert"><?php echo isset($alert) ? $alert: ''; ?></div>
+      <form action ="" method="POST">  
+  */
+  .form_register
+  {
+    width:100%
+  }
+  form 
+  {
+    padding:10px;
+  }
+  .btn_save
+  {
+    width:100%;
+    margin:20px auto 15px auto;
+  }
+  .bodyModal
+  {
+    padding:10px;
+  }
+  .btn_new
+  {
+    width:124px;
+    font-size:12px;
+    border:0;
+  }
+  .btnNewProducto, .btnNewVenta, .btn_new_cliente
+  {
+    width:140px;
+    font-size:12px;
+  }
+
+} /* @media screen and (max-width:768px) */
+
+/* Tamaños para celular */ 
+@media screen and (max-width:460px)
+{
+ .dashboard a
+ {
+   padding:5px 2px;
+ }
+ .dashboard p 
+ {
+   font-size:9pt;   
+ }
+ .dashboard span 
+ {
+   font-size:10pt;
+ }
+ .divDataUser label 
+ {
+   width:80px;
+ }
+
+}
+

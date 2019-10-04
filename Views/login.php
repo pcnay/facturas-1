@@ -1,4 +1,37 @@
 <!DOCTYPE html>
+<?php
+  $alert = '';
+  if(!empty($_POST))
+  {
+    if (empty($_POST['usuario']) || empty($_POST['clave']))
+    {
+      $alert = "Ingrese su Usuario y/o Clave";
+    }
+    else
+    {
+      require_once("./conexion.php");
+      $user = $_POST['usuario'];
+      $pass = $_POST['clave'];
+      $query = mysqli_query($conection,"SELECT * FROM usuario WHERE usuario = '$user' AND clave = MD5('$pass') ");
+      $result = mysqli_num_rows($query);
+      if ($result>0)
+      {
+        $data = mysqli_fetch_array($query);
+        // print_r($data);
+        $_SESSION['active'] = true;
+        $_SESSION['idUser'] = $data['idusuario'];
+        $_SESSION['nombre'] = $data['nombre'];
+        $_SESSION['email'] = $data['correo'];
+        $_SESSION['user'] = $data['usuario'];
+        $_SESSION['rol'] = $data['rol'];
+        header('location:sistema/');
+      }
+
+    }
+  }
+
+
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -17,6 +50,8 @@
       <!-- Utilizado para desplegar mensaje en la captura de contraseña--->
       <p class="alert"></p>
       <input type="submit" value="INGRESAR">
+      
+      <!-- Este formulario no tiene "action" por lo que al hacer "click" en este boton se autoprocesa, es decir vuelve a ejecutarse desde el inicio nuevamente-->
 
     </form>
 
