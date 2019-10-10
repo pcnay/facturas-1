@@ -9,6 +9,12 @@
     }
     else
     {
+      if (!isset($_POST['usuario']) && !isset($_POST['clave']))
+      {
+
+      }
+
+      /*
       require_once("./conexion.php");
       $user = $_POST['usuario'];
       $pass = $_POST['clave'];
@@ -26,12 +32,12 @@
         $_SESSION['rol'] = $data['rol'];
         header('location:sistema/');
       }
+      */
 
     }
   }
-
-
 ?>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -59,3 +65,4 @@
 
   </body>
 </html>
+ 

@@ -1,6 +1,7 @@
 <?php
-  require_once('Controllers/ViewControllers.php');
+  require_once ('./Controllers/Router.php');
 
-  $facturacion = new ViewControllers();
-  $facturacion->load_view('login');
+  $route = isset($_GET['r']) ? $_GET['r']:'home';
+  $facturacion = new Router($route);
+
 ?>
