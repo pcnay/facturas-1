@@ -30,7 +30,7 @@
           "read_and_close" => true
           */
         ]);
-        $_SESSION['ok'] = false;
+        //$_SESSION['ok'] = false;
 
       } // if (!isset($_SESSION))
 
@@ -55,6 +55,7 @@
         else
         {
           $user_session = new SessionController();
+
           
         }
           
