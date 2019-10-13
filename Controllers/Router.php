@@ -1,6 +1,7 @@
 <?php
   require_once('ViewControllers.php');
-  
+  require_once('SessionController.php');
+
   class Router
   {
     public $route;
@@ -54,9 +55,18 @@
         }
         else
         {
-          $user_session = new SessionController();
-
+          // Buscar al usuario (Del sistema) en la base de datos.
+          $user_session = new SessionController();          
+          $session = $user_session->login($_POST['usuario'],$_POST['clave']);
           
+          if (empty($session))
+          {
+            echo 'El Usuario y/o Password Son INCORRECTOS';
+          }
+          else
+          {
+            echo 'El Usuario y/o Password Son CORRECTOS';
+          }
         }
           
       }

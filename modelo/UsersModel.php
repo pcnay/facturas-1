@@ -91,9 +91,26 @@
 
     }
 
-    public function 
+    public function validate_user($usuario,$clave)
+    {
+      //print(' funcion Validate_User,  Valor 1 = '.$usuario);
+      //print ('Valor 2 = '.$clave);
+      //exit;
 
-    public function set()
+      $this->query = "SELECT * FROM usuario WHERE usuario = '$usuario' AND clave = MD5('$clave')";
+      $this->get_query();
+      $data = array();
+      foreach ($this->rows as $Campo => $Valor)
+      {
+        array_push($data,$Valor);
+      }
+      //var_dump($data);
+
+      return $data;
+
+    }
+
+    public function set()    
     {
 
     }

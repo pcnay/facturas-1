@@ -6,17 +6,18 @@
     private $session;
     public function __construct()
     {
-      $this->session = new UserModels();
+      $this->session = new UsersModel(); // Accesa al Modelo de Usuarios.
 
     }
     public function __destruct()
     {
       unset($this);
     }
-    public function login()
+    public function login($usuario,$clave)    
     {
-
+      return $this->session->validate_user($usuario,$clave);
     }
+
     public function logout()
     {
 
