@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+/*
   $alert = '';
   if(!empty($_POST))
   {
@@ -14,7 +15,7 @@
 
       }
 
-      /*
+      
       require_once("./conexion.php");
       $user = $_POST['usuario'];
       $pass = $_POST['clave'];
@@ -32,10 +33,11 @@
         $_SESSION['rol'] = $data['rol'];
         header('location:sistema/');
       }
-      */
+      
 
     }
   }
+  */
 ?>
 
 <html lang="en">
@@ -54,13 +56,16 @@
       <input type="text" name="usuario" placeholder="Usuario">
       <input type="password" name="clave" placeholder = "Contraseña">
       <!-- Utilizado para desplegar mensaje en la captura de contraseña--->
-      <p class="alert"></p>
+
+      <!-- <div class="alert"><?php //echo (isset($alert) ? $alert :'';) ?></div> -->
+      <div class="alert"><?php echo isset($_GET['error'])?$_GET['error']:'' ; ?></div>
+
       <input type="submit" value="INGRESAR">
       
       <!-- Este formulario no tiene "action" por lo que al hacer "click" en este boton se autoprocesa, es decir vuelve a ejecutarse desde el inicio nuevamente-->
 
     </form>
-
+    
    </section>
 
   </body>

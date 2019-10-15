@@ -43,7 +43,11 @@
       if ($_SESSION['ok'])
       {
         // Aqui va toda la programacion de la Aplicacion Web
-        print ("Seccion para la Aplicacion Web");
+        //print ("Seccion para la Aplicacion Web");
+        $controller = new ViewControllers();
+        //header('Location: sistema/');
+        
+        $controller->load_view('home');
       }
       else
       {
@@ -61,11 +65,29 @@
           
           if (empty($session))
           {
-            echo 'El Usuario y/o Password Son INCORRECTOS';
+           // echo 'El Usuario y/o Password Son INCORRECTOS';
+           $login_form = new ViewControllers();           
+           $login_form->load_view('login');
+           // Se envía informacion a las capas (View, Controller. Model) a través de las variables globales "$_GET, $_POST" 
+           header('Location: ./?error=El Usuario '. $_POST['usuario']. 'y el Passoword proporcionado no coinciden');
+
           }
           else
           {
-            echo 'El Usuario y/o Password Son CORRECTOS';
+            //echo 'El Usuario y/o Password Son CORRECTOS';
+            $_SESSION['ok'] = true;
+            // Se crean las variables de session
+            foreach ($session as $row)
+            {
+              $_SESSION['active'] = true;
+              $_SESSION['idusuario'] = $row['idusuario'];
+              $_SESSION['nombre'] = $row['nombre'];
+              $_SESSION['correo'] = $row['correo'];
+              $_SESSION['usuario'] = $row['usuario'];
+              $_SESSION['rol'] = $row['rol'];
+            }
+            // Se vuelve a recargar este archivo , es decir se redireccion al home; y vuelve a realizar las comparaciones, es esta ocacion "$_SESSION['ok'] = true.
+            header('Location: ./');
           }
         }
           
