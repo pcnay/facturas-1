@@ -1,4 +1,6 @@
-<?php 
-  print ('Pagina principal de la aplicacion');
+  <?php
+    print (" Home de la aplicacion.");
+    
+  ?> 
+
   
-?>

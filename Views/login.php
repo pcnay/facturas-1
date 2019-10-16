@@ -44,11 +44,13 @@
   <head>
     <meta charset="UTF-8">
     <title>Login Sistema De Facturacion</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" >
+    
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css" >-->
   </head>
+
   <body>
    <section id="container">
-    
+
     <form action ="" method = "post">
       
       <h3>Iniciar Sesion</h3>
@@ -65,9 +67,10 @@
       <!-- Este formulario no tiene "action" por lo que al hacer "click" en este boton se autoprocesa, es decir vuelve a ejecutarse desde el inicio nuevamente-->
 
     </form>
-    
+
    </section>
 
   </body>
+<!--     
 </html>
- 
+-->

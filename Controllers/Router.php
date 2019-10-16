@@ -44,10 +44,26 @@
       {
         // Aqui va toda la programacion de la Aplicacion Web
         //print ("Seccion para la Aplicacion Web");
+
+        // Determina a que ruta (Opcion del menu)
+        $this->route = isset($_GET['r'])?$_GET['r']:'home';
+        // Estas son las opciones del menu.
         $controller = new ViewControllers();
-        //header('Location: sistema/');
+        switch($this->route)
+        {
+          case 'home':                    
+            $controller->load_view('home');
+            break;
+
+          case 'salir':
+            $user_session = new SessionController();
+            $user_session->logout();
+            break;
+          default:
+            $controller->load_view('error404');
+            break;     
+        }
         
-        $controller->load_view('home');
       }
       else
       {
