@@ -1,11 +1,16 @@
 <?php
   $host = 'localhost';
-  $user = 'root';
+  $user = 'facturas';
   $password = 'pcnay2003';
-  $db = 'facturacion';
-  $conection = @mysqli_connect($host,$user,$password,$db);
+	$db = 'facturacion';
+	//$db = 'ordenservicios';
+  $conection = new mysqli('localhost','facturas','pcnay2003','facturacion');
   if (!$conection)
   {
     echo "Error en la conexion";
-  }
+	}
+	else
+	{
+		echo "Conexion exitosa";
+	}
 ?>
